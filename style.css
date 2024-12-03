@@ -1,5 +1,5 @@
 .navbar-custom {
-  background-color: rgb(108, 213, 108);
+  background-color: rgb(93, 118, 93);
 }
 
 .active {
@@ -9,4 +9,12 @@
 
 .navbar-brand {
   font-weight: bolder;
+}
+
+.bg-image {
+  background-image: url(./images/walkingTrail.jpg);
+}
+
+.bg-custom {
+  background-color: hsla(51, 54%, 75%, 0.9);
 }
