@@ -1,0 +1,12 @@
+.navbar-custom {
+  background-color: rgb(108, 213, 108);
+}
+
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+}
