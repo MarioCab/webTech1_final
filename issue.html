@@ -113,27 +113,68 @@
             <div class="col">
               <div class="collapse multi-collapse fs-3" id="fact1">
                 <div class="card card-body">
-                  Some placeholder content for the first collapse component of
-                  this multi-collapse example. This panel is hidden by default
-                  but revealed when the user activates the relevant trigger.
+                  Over 30% of the population of the world over 15 years old live
+                  a life with insufficient physical activity, which contributes
+                  to the deaths of roughly 3.2 million people a year
+                  <a
+                    type="button"
+                    class="btn btn-custom btn-sm"
+                    data-bs-container="body"
+                    data-bs-toggle="popover"
+                    data-bs-trigger="hover"
+                    data-bs-placement="bottom"
+                    data-bs-content="https://pmc.ncbi.nlm.nih.gov/articles/PMC7700832/"
+                    href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7700832/"
+                    target="_blank"
+                  >
+                    Source
+                  </a>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="collapse multi-collapse fs-3" id="fact2">
                 <div class="card card-body">
-                  Some placeholder content for the second collapse component of
-                  this multi-collapse example. This panel is hidden by default
-                  but revealed when the user activates the relevant trigger.
+                  U.S citizens average 4,774 steps per day. This might seem like
+                  a lot, however, studies show that less than 5,000 steps per
+                  day is considered being sedentary, with the recommended amount
+                  to aim for being closer to at least 7,000
+                  <a
+                    type="button"
+                    class="btn btn-custom btn-sm"
+                    data-bs-container="body"
+                    data-bs-toggle="popover"
+                    data-bs-trigger="hover"
+                    data-bs-placement="bottom"
+                    data-bs-content="https://www.medicalnewstoday.com/articles/average-steps-per-day#steps-by-location"
+                    href="https://www.medicalnewstoday.com/articles/average-steps-per-day#steps-by-location"
+                    target="_blank"
+                  >
+                    Source
+                  </a>
                 </div>
               </div>
             </div>
             <div class="col">
               <div class="collapse multi-collapse fs-3" id="fact3">
                 <div class="card card-body">
-                  Some placeholder content for the second collapse component of
-                  this multi-collapse example. This panel is hidden by default
-                  but revealed when the user activates the relevant trigger.
+                  Deaths related to heart health issues have increased by 906%
+                  in adults under 45 years old since 2012 with a large number of
+                  these being contributed to unhealthy lifestyles starting at a
+                  young age.
+                  <a
+                    type="button"
+                    class="btn btn-custom btn-sm"
+                    data-bs-container="body"
+                    data-bs-toggle="popover"
+                    data-bs-trigger="hover"
+                    data-bs-placement="bottom"
+                    data-bs-content="https://medschool.duke.edu/news/study-shows-alarming-rise-heart-failure-deaths-especially-among-younger-adults"
+                    href="https://medschool.duke.edu/news/study-shows-alarming-rise-heart-failure-deaths-especially-among-younger-adults"
+                    target="_blank"
+                  >
+                    Source
+                  </a>
                 </div>
               </div>
             </div>
@@ -156,5 +197,15 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const popoverTriggerList = [].slice.call(
+          document.querySelectorAll('[data-bs-toggle="popover"]')
+        );
+        popoverTriggerList.map(function (popoverTriggerEl) {
+          return new bootstrap.Popover(popoverTriggerEl);
+        });
+      });
+    </script>
   </body>
 </html>
