@@ -22,3 +22,8 @@
 .bg-custom {
   background-color: hsla(51, 54%, 75%, 0.9);
 }
+
+.btn-custom {
+  background-color: hsla(51, 54%, 75%, 0.9);
+  color: black;
+}

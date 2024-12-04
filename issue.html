@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header class="bg-image text-dark text-center py-5">
+      <div class="container bg-custom">
+        <h1 class="fw-bold fs-1">The Issue</h1>
+      </div>
+    </header>
     <nav class="navbar navbar-expand-lg navbar-custom">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Healthy Steps</a>
@@ -45,15 +50,97 @@
         </div>
       </div>
     </nav>
-    <header class="bg-image text-dark text-center py-5">
-      <div class="container bg-custom">
-        <h1>The issue</h1>
-        <p class="lead">
-          Learn about one of the most common and deadly issues plaguing our
-          population in the current day.
-        </p>
+    <div class="container-main">
+      <hr class="featurette-divider" />
+
+      <div class="d-flex justify-content-center featurette text-center">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-bold lh-1 fs-1">
+            What is the issue?
+          </h2>
+          <p class="lead fs-3">
+            As technology becomes more and more prevalent in our society, jobs
+            which require us to be stationary become more commonplace. Not only
+            that, but the expectations of employees to work more than the
+            average 8 hour shift is more common than not. Add this to the fact
+            that as a society we have become a lot more stationary in general,
+            with streaming services like Netflix and Hulu being a lot of
+            individuals main source of entertainment, and you'll quickly see how
+            little we are getting up and moving these days.
+          </p>
+        </div>
       </div>
-    </header>
+      <hr class="featurette-divider" />
+      <div class="d-flex justify-content-center featurette text-center">
+        <div class="col-md-7">
+          <h2 class="featurette-heading fw-bold lh-1 fs-1">Scary Facts</h2>
+          <p class="lead fs-3">
+            Click the cards below to reveal some alarming facts about this issue
+          </p>
+          <p class="d-inline-flex gap-1">
+            <button
+              class="btn btn-primary btn-lg btn-custom"
+              data-bs-toggle="collapse"
+              href="#fact1"
+              role="button"
+              aria-expanded="false"
+              aria-controls="fact1"
+            >
+              Fact 1
+            </button>
+            <button
+              class="btn btn-primary btn-lg btn-custom"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#fact2"
+              aria-expanded="false"
+              aria-controls="fact2"
+            >
+              Fact 2
+            </button>
+            <button
+              class="btn btn-primary btn-lg btn-custom"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#fact3"
+              aria-expanded="false"
+              aria-controls="fact3"
+            >
+              Fact 3
+            </button>
+          </p>
+          <div class="row">
+            <div class="col">
+              <div class="collapse multi-collapse fs-3" id="fact1">
+                <div class="card card-body">
+                  Some placeholder content for the first collapse component of
+                  this multi-collapse example. This panel is hidden by default
+                  but revealed when the user activates the relevant trigger.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="collapse multi-collapse fs-3" id="fact2">
+                <div class="card card-body">
+                  Some placeholder content for the second collapse component of
+                  this multi-collapse example. This panel is hidden by default
+                  but revealed when the user activates the relevant trigger.
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="collapse multi-collapse fs-3" id="fact3">
+                <div class="card card-body">
+                  Some placeholder content for the second collapse component of
+                  this multi-collapse example. This panel is hidden by default
+                  but revealed when the user activates the relevant trigger.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
