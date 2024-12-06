@@ -4,10 +4,22 @@ function validateForm() {
 
   if (validateDays() & validateLifestyle()) {
     calculateSteps();
+    getDaysOfWeek();
   } else {
     document.getElementById("stepsNew").textContent = "__";
     return false;
   }
+}
+
+function getDaysOfWeek() {
+  const selectedOptions = [];
+  const options = document.getElementsByClassName("form-check-label");
+  console.log(options);
+  console.log(options);
+
+  selectedOptions.push(options.values);
+
+  console.log(selectedOptions);
 }
 
 function calculateSteps() {
