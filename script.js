@@ -6,45 +6,60 @@ function validateForm() {
     calculateSteps();
     getDaysOfWeek();
   } else {
-    document.getElementById("stepsNew").textContent = "__";
+    document.getElementById("stepsNewWeek").textContent = "__";
+    document.getElementById("stepsNewDay").textContent = "__";
+
     return false;
   }
 }
 
+const selectedOptions = [];
+
 function getDaysOfWeek() {
-  const selectedOptions = [];
-  const options = document.getElementsByClassName("form-check-label");
-  console.log(options);
-  console.log(options);
+  const radioOptions = document.getElementsByName("option");
 
-  selectedOptions.push(options.values);
-
-  console.log(selectedOptions);
+  for (const option of radioOptions) {
+    if (option.checked) {
+      selectedOptions.push(option);
+    }
+  }
 }
 
 function calculateSteps() {
   const selectLifestyle = document.getElementById("selectLifestyle");
+  const newLifestyleText = document.getElementById("lifestyleNew");
   const stepsToWalk = document.getElementById("stepsToWalk");
-  const stepsNew = document.getElementById("stepsNew");
-  let lifestyleSteps = 0;
+  const stepsNewDay = document.getElementById("stepsNewDay");
 
-  if ((selectLifestyle.value = "Sedentary")) {
+  let lifestyleSteps;
+  let stepsDay;
+  let newLifestyle;
+
+  if (selectLifestyle.value === "option1") {
     lifestyleSteps = 2500;
-  } else if ((selectLifestyle.value = "Moderate")) {
+  } else if (selectLifestyle.value === "option2") {
     lifestyleSteps = 5000;
-  } else if ((selectLifestyle.value = "Active")) {
+  } else if (selectLifestyle.value === "option3") {
     lifestyleSteps = 7000;
   }
 
-  let steps = parseInt(stepsToWalk.value) + lifestyleSteps;
+  stepsDay = parseInt(stepsToWalk.value) * 80 + lifestyleSteps;
 
-  stepsNew.textContent = steps;
+  stepsNewDay.textContent = `${stepsDay}`;
+
+  if (stepsDay < 5000) {
+    newLifestyleText.textContent = "Sedentary";
+  } else if ((stepsDay >= 5000) & (stepsDay < 7000)) {
+    newLifestyleText.textContent = "Moderate";
+  } else {
+    newLifestyleText.textContent = "Active";
+  }
 }
 
 function validateLifestyle() {
   const selectLifestyle = document.getElementById("selectLifestyle");
   const lifestyleError = document.getElementById("lifestyleError");
-  if (selectLifestyle.value == "") {
+  if (selectLifestyle.value === "") {
     lifestyleError.textContent = "Please select a lifestyle.";
     return false;
   } else {
