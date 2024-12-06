@@ -4,13 +4,8 @@ function validateForm() {
 
   if (validateDays() & validateLifestyle()) {
     calculateSteps();
-    $(".form-check-input")
-      .find(":input")
-      .not(":button, :submit, :reset, :hidden")
-      .val("")
-      .prop("checked", false)
-      .prop("selected", false);
   } else {
+    document.getElementById("stepsNew").textContent = "__";
     return false;
   }
 }
@@ -31,9 +26,7 @@ function calculateSteps() {
 
   let steps = parseInt(stepsToWalk.value) + lifestyleSteps;
 
-  alert(`Based on your calculations, your average weekly life-style would
-          become __. You would approximately
-          walk an extra ${steps} steps per day.`);
+  stepsNew.textContent = steps;
 }
 
 function validateLifestyle() {
