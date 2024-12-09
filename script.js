@@ -1,10 +1,22 @@
+let selectedOptions = [];
+const stepsToWalkValue = document.getElementById("stepsToWalkValue");
+const stepsToWalk = document.getElementById("stepsToWalk");
+
+let lifestyleSteps = 0;
+let stepsDay = 0;
+let stepsWeek = 0;
+let newLifestyle = "";
+
 function validateForm() {
   validateDays();
   validateLifestyle();
 
   if (validateDays() & validateLifestyle()) {
-    calculateSteps();
-    getDaysOfWeek();
+    getSelectedDays();
+    calculateDailySteps();
+    calculateWeeklySteps();
+    calculateNewLifestyle();
+    selectedOptions = [];
   } else {
     document.getElementById("stepsNewWeek").textContent = "__";
     document.getElementById("stepsNewDay").textContent = "__";
@@ -13,9 +25,7 @@ function validateForm() {
   }
 }
 
-const selectedOptions = [];
-
-function getDaysOfWeek() {
+function getSelectedDays() {
   const radioOptions = document.getElementsByName("option");
 
   for (const option of radioOptions) {
@@ -25,15 +35,8 @@ function getDaysOfWeek() {
   }
 }
 
-function calculateSteps() {
+function getLifestyleStepsValue() {
   const selectLifestyle = document.getElementById("selectLifestyle");
-  const newLifestyleText = document.getElementById("lifestyleNew");
-  const stepsToWalk = document.getElementById("stepsToWalk");
-  const stepsNewDay = document.getElementById("stepsNewDay");
-
-  let lifestyleSteps;
-  let stepsDay;
-  let newLifestyle;
 
   if (selectLifestyle.value === "option1") {
     lifestyleSteps = 2500;
@@ -43,17 +46,47 @@ function calculateSteps() {
     lifestyleSteps = 7000;
   }
 
-  stepsDay = parseInt(stepsToWalk.value) * 80 + lifestyleSteps;
+  return lifestyleSteps;
+}
+
+function calculateDailySteps() {
+  const stepsNewDay = document.getElementById("stepsNewDay");
+  let lifeStyleSteps = getLifestyleStepsValue();
+
+  stepsDay = parseInt(stepsToWalk.value) * 80 + lifeStyleSteps;
 
   stepsNewDay.textContent = `${stepsDay}`;
 
-  if (stepsDay < 5000) {
-    newLifestyleText.textContent = "Sedentary";
-  } else if ((stepsDay >= 5000) & (stepsDay < 7000)) {
-    newLifestyleText.textContent = "Moderate";
+  return stepsDay;
+}
+
+function calculateWeeklySteps() {
+  let daysToWalk = 0;
+  const stepsNewWeek = document.getElementById("stepsNewWeek");
+  let lifeStyleSteps = getLifestyleStepsValue();
+  daysToWalk = selectedOptions.length;
+
+  stepsWeek =
+    daysToWalk * (parseInt(stepsToWalk.value) * 80) + lifeStyleSteps * 7;
+
+  stepsNewWeek.textContent = `${stepsWeek}`;
+
+  return stepsWeek;
+}
+
+function calculateNewLifestyle() {
+  const newLifestyleText = document.getElementById("lifestyleNew");
+  let steps = calculateWeeklySteps();
+  let newLifestyle = "";
+
+  if (steps < 35000) {
+    newLifestyle = "Sedentary";
+  } else if (steps > 35000 && steps < 49000) {
+    newLifestyle = "Moderate";
   } else {
-    newLifestyleText.textContent = "Active";
+    newLifestyle = "Active";
   }
+  newLifestyleText.textContent = `${newLifestyle}`;
 }
 
 function validateLifestyle() {
@@ -87,8 +120,6 @@ function validateDays() {
   }
 }
 
-const stepsToWalk = document.getElementById("stepsToWalk");
-const stepsToWalkValue = document.getElementById("stepsToWalkValue");
 stepsToWalk.addEventListener("input", function () {
   stepsToWalkValue.textContent = `Value: ${stepsToWalk.value}`;
 });
