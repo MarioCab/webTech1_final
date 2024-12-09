@@ -20,6 +20,7 @@ function validateForm() {
   } else {
     document.getElementById("stepsNewWeek").textContent = "__";
     document.getElementById("stepsNewDay").textContent = "__";
+    selectedOptions = [];
 
     return false;
   }
